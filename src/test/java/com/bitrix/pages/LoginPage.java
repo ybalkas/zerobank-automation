@@ -1,5 +1,6 @@
 package com.bitrix.pages;
 
+import com.bitrix.utilities.ConfigurationReader;
 import com.bitrix.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,10 +19,11 @@ public class LoginPage {
     @FindBy(name = "submit")
     public WebElement signIn;
 
-    public void Login(String usernameStr, String passwordStr){
-        userName.sendKeys(usernameStr);
-        password.sendKeys(passwordStr);
-        signIn.click();
 
+    public void Login(){
+        Driver.get().get(ConfigurationReader.get("url"));
+        userName.sendKeys(ConfigurationReader.get("Id"));
+        password.sendKeys(ConfigurationReader.get("Password"));
+        signIn.click();
     }
 }
