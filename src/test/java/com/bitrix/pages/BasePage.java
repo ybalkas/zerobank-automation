@@ -1,7 +1,9 @@
 package com.bitrix.pages;
 
 import com.bitrix.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,6 +38,12 @@ public abstract class BasePage {
         WebElement dropDown = new DashboardPage().accountDrops;
         Select select = new Select(dropDown);
         return select;
+    }
+
+    public void navigateTo(String str){
+        String textLocator = "//a[contains(text(),'"+str+"')]";
+        WebElement textElement = Driver.get().findElement(By.xpath(textLocator));
+        new Actions(Driver.get()).moveToElement(textElement).doubleClick().build().perform();
     }
 
 
