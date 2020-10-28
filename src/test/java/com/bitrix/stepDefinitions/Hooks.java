@@ -1,4 +1,4 @@
-package com.bitrix.stepDefinations;
+package com.bitrix.stepDefinitions;
 
 import com.bitrix.utilities.Driver;
 import io.cucumber.java.After;

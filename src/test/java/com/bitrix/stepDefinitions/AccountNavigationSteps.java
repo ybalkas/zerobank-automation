@@ -1,20 +1,16 @@
-package com.bitrix.stepDefinations;
+package com.bitrix.stepDefinitions;
 
 import com.bitrix.pages.DashboardPage;
 import com.bitrix.pages.LoginPage;
-import com.bitrix.utilities.BrowserUtils;
-import com.bitrix.utilities.ConfigurationReader;
 import com.bitrix.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class AccountNavigationSteps {
 
+    /**
     @Given("the user is logged in")
     public void the_user_is_logged_in() {
         new LoginPage().Login();
@@ -86,5 +82,6 @@ public class AccountNavigationSteps {
         String actualDrop = new DashboardPage().SelectMethod().getFirstSelectedOption().getText();
         Assert.assertEquals(expectedDrop,actualDrop);
     }
+    **/
 
 }

@@ -8,12 +8,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"json:target/cucumber.json"},
         features = "src/test/resources/features",
-        glue = "com/bitrix/stepDefinations",
+        glue = "com/bitrix/stepDefinitions",
         dryRun = false,
         tags = "@wip"
 )
 
 public class CukesRunner {
-
-
 }

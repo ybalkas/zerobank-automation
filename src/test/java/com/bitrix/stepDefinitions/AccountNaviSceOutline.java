@@ -1,4 +1,4 @@
-package com.bitrix.stepDefinations;
+package com.bitrix.stepDefinitions;
 
 import com.bitrix.pages.DashboardPage;
 import com.bitrix.pages.LoginPage;
