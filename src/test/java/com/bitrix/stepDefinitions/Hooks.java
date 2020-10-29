@@ -1,5 +1,6 @@
 package com.bitrix.stepDefinitions;
 
+import com.bitrix.utilities.BrowserUtils;
 import com.bitrix.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -20,6 +21,7 @@ public class Hooks {
             final byte[] screenShot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenShot,"image/png","screenshot");
         }
+        BrowserUtils.waitFor(2);
         Driver.closeDriver();
     }
 

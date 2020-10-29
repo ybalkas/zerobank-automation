@@ -22,7 +22,7 @@ public class LoginPage {
 
     public void Login(){
         Driver.get().get(ConfigurationReader.get("url"));
-        userName.sendKeys(ConfigurationReader.get("Id"));
+        userName.sendKeys(ConfigurationReader.get("Username"));
         password.sendKeys(ConfigurationReader.get("Password"));
         signIn.click();
     }

@@ -24,11 +24,14 @@ public abstract class BasePage {
     @FindBy(xpath = "//a[contains(text(),'Brokerage')]")
     public WebElement brokerage;
 
-    @FindBy(xpath = "//a[contains(text(),'Checking')]")
-    public WebElement checking;
+    @FindBy(css = "#aa_fromDate")
+    public WebElement fromDate;
 
-    @FindBy(xpath = "//a[contains(text(),'Loan')]")
-    public WebElement loan;
+    @FindBy(css = "#aa_toDate")
+    public WebElement toDate;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement submit;
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
@@ -44,6 +47,12 @@ public abstract class BasePage {
         String textLocator = "//a[contains(text(),'"+str+"')]";
         WebElement textElement = Driver.get().findElement(By.xpath(textLocator));
         new Actions(Driver.get()).moveToElement(textElement).doubleClick().build().perform();
+    }
+
+    public void navigateDate(String str){
+        String dateLocator = "(//td[contains(text(),'"+str+"')])[2]";
+        WebElement dateElement = Driver.get().findElement(By.xpath(dateLocator));
+        new Actions(Driver.get()).moveToElement(dateElement).doubleClick().build().perform();
     }
 
 

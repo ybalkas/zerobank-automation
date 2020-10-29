@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json"},
         features = "src/test/resources/features",
         glue = "com/bitrix/stepDefinitions",
-        dryRun = false,
+        dryRun = true,
         tags = "@wip"
 )
 

@@ -1,5 +1,8 @@
 package com.bitrix.stepDefinitions;
 
+import com.bitrix.pages.DashboardPage;
+import com.bitrix.pages.LoginPage;
+import com.bitrix.utilities.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,21 +11,28 @@ public class TransactionsSteps {
 
     @Given("the user accesses the Find Transactions tab")
     public void the_user_accesses_the_Find_Transactions_tab() {
-
+        new LoginPage().Login();
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.navigateTo("Account Activity");
+        dashboardPage.navigateTo("Find Transactions");
     }
 
-    @When("the user enters date range from “{int}-{int}-{int}” to “{int}-{int}-{int}”")
-    public void the_user_enters_date_range_from_to(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6) {
-
+    @When("the user enters date range from {string} to {string}")
+    public void the_user_enters_date_range_from_to(String str,String str2) {
+        DashboardPage dashboardPage=new DashboardPage();
+        BrowserUtils.waitFor(2);
+        dashboardPage.fromDate.sendKeys(str);
+        dashboardPage.toDate.sendKeys(str2);
     }
+
 
     @When("clicks search")
     public void clicks_search() {
-
+        new DashboardPage().submit.click();
     }
 
-    @Then("results table should only show transactions dates between “{int}-{int}-{int}” to “{int}-{int}-{int}”")
-    public void results_table_should_only_show_transactions_dates_between_to(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6) {
+    @Then("results table should only show transactions dates between {string} to {string}")
+    public void results_table_should_only_show_transactions_dates_between_to(String str, String str2) {
 
     }
 
@@ -31,8 +41,8 @@ public class TransactionsSteps {
 
     }
 
-    @Then("the results table should only not contain transactions dated “{int}-{int}-{int}”")
-    public void the_results_table_should_only_not_contain_transactions_dated(Integer int1, Integer int2, Integer int3) {
+    @Then("the results table should only not contain transactions dated {string}")
+    public void the_results_table_should_only_not_contain_transactions_dated(String str) {
 
     }
 

@@ -24,7 +24,7 @@ Feature: Navigating to specific accounts in Accounts Activity
     Then the Account Activity page should be displayed
     And Account drop down should have Loan selected
 
-
+  @wip
   Scenario Outline:Different user redirect
     Given the user is logged in
     When the user clicks on "<text>" link on the Account Summary page
